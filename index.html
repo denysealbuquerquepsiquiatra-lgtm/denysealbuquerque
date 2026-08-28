@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dra. Denyse Albuquerque · Psiquiatria</title>
+  <meta name="description" content="Médica psiquiatra em Fortaleza/CE. Psiquiatria geral e dependência química para adultos e idosos. Agende sua consulta." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-primary:      #1A4A7A;
+      --color-secondary:    #3AACAA;
+      --color-accent:       #F28029;
+      --color-accent-hover: #D96E1F;
+      --color-warm-rose:    #D4848A;
+      --color-surface:      #F7F1EA;
+      --color-surface-alt:  #EDE8E0;
+      --color-primary-dark: #112F50;
+      --color-text:         #2D2D2D;
+      --color-text-light:   #6B6560;
+      --color-white:        #FFFFFF;
+
+      --font-heading: 'Cormorant Garamond', serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-script:  'Dancing Script', cursive;
+
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 16px;
+      --space-4: 24px;
+      --space-5: 40px;
+      --space-6: 64px;
+      --space-7: 96px;
+
+      --radius-sm:   12px;
+      --radius-lg:   24px;
+      --radius-full: 9999px;
+
+      --shadow-card: 0 4px 24px rgba(26, 74, 122, 0.08);
+      --shadow-nav:  0 2px 20px rgba(26, 74, 122, 0.10);
+
+      --container: 1160px;
+      --nav-height: 72px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      background-color: var(--color-surface);
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+    @media (max-width: 1024px) { .container { padding: 0 48px; } }
+    @media (max-width: 640px)  { .container { padding: 0 24px; } }
+
+    /* ─── Typography ─────────────────────────────────────────── */
+    h1, h2, h3 { font-family: var(--font-heading); color: var(--color-primary); }
+    h1 { font-size: clamp(2.4rem, 5vw, 3.5rem); line-height: 1.15; font-weight: 300; }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.25rem); line-height: 1.2;  font-weight: 400; }
+    h3 { font-size: 1.4rem; line-height: 1.3; font-weight: 600; }
+
+    .label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+    }
+
+    .section-intro {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+    .section-intro--center { align-items: center; text-align: center; }
+
+    /* ─── Buttons ────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 14px 32px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      border: none;
+      line-height: 1;
+    }
+    .btn-primary {
+      background: var(--color-accent);
+      color: var(--color-white);
+      box-shadow: 0 4px 16px rgba(242, 128, 41, 0.28);
+    }
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(242, 128, 41, 0.35);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--color-primary);
+      color: var(--color-primary);
+    }
+    .btn-outline:hover {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+    .btn-outline-white {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.6);
+      color: var(--color-white);
+    }
+    .btn-outline-white:hover {
+      background: var(--color-white);
+      color: var(--color-primary);
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       NAVBAR
+    ═════════════════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(247, 241, 234, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(58, 172, 170, 0.18);
+      box-shadow: var(--shadow-nav);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .nav__brand { display: flex; flex-direction: column; gap: 1px; }
+    .nav__brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      line-height: 1.1;
+    }
+    .nav__brand-sub { font-size: 0.7rem; color: var(--color-text-light); letter-spacing: 0.04em; }
+    .nav__links { display: flex; align-items: center; gap: var(--space-5); list-style: none; }
+    .nav__links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text);
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1.5px;
+      background: var(--color-secondary);
+      transform: scaleX(0);
+      transition: transform 0.22s;
+    }
+    .nav__links a:hover { color: var(--color-primary); }
+    .nav__links a:hover::after { transform: scaleX(1); }
+    .nav__cta { font-size: 0.875rem; padding: 10px 22px; }
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--color-primary);
+      border-radius: 2px;
+    }
+    @media (max-width: 860px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__hamburger { display: flex; }
+      .nav.open .nav__links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: var(--nav-height);
+        left: 0; right: 0;
+        background: var(--color-surface);
+        padding: var(--space-5) var(--space-4);
+        gap: var(--space-4);
+        border-bottom: 1px solid rgba(58,172,170,0.15);
+        box-shadow: var(--shadow-nav);
+        align-items: flex-start;
+      }
+      .nav.open .nav__cta { display: inline-flex; margin-top: var(--space-1); }
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       HERO
+    ═════════════════════════════════════════════════════════ */
+    .hero {
+      padding-top: calc(var(--nav-height) + var(--space-7));
+      padding-bottom: var(--space-7);
+      background-color: var(--color-surface);
+      overflow: hidden;
+    }
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 80px;
+      align-items: center;
+    }
+    .hero__eyebrow {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    .hero__eyebrow-line { width: 32px; height: 1.5px; background: var(--color-secondary); flex-shrink: 0; }
+    .hero__heading { margin-bottom: var(--space-4); }
+    .hero__heading em { font-style: italic; color: var(--color-secondary); }
+    .hero__sub {
+      font-size: 1.125rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--color-text-light);
+      max-width: 460px;
+      margin-bottom: var(--space-5);
+    }
+    .hero__actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-6);
+    }
+    .hero__credentials {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding-top: var(--space-5);
+      border-top: 1px solid rgba(58, 172, 170, 0.2);
+    }
+    .hero__cred-item { font-size: 0.75rem; color: var(--color-text-light); font-weight: 500; letter-spacing: 0.04em; }
+    .hero__cred-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--color-secondary); flex-shrink: 0; }
+    .hero__photo-wrap { position: relative; }
+    .hero__photo-accent {
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 100%; height: 100%;
+      border-radius: var(--radius-lg);
+      background: var(--color-secondary);
+      opacity: 0.10;
+      z-index: 0;
+    }
+    .hero__photo {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 16px 48px rgba(26, 74, 122, 0.14);
+    }
+    .hero__photo-card {
+      position: absolute;
+      bottom: var(--space-4);
+      left: var(--space-4);
+      right: var(--space-4);
+      background: rgba(247, 241, 234, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .hero__photo-card-name {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      line-height: 1.15;
+    }
+    .hero__photo-card-role { font-size: 0.72rem; color: var(--color-text-light); margin-top: 1px; }
+    .hero__photo-card-badge {
+      margin-left: auto;
+      background: var(--color-primary);
+      color: var(--color-white);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 5px 11px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+    .hero__ring {
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(58, 172, 170, 0.22);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero__ring::after {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(58, 172, 170, 0.14);
+    }
+    @media (max-width: 900px) {
+      .hero__grid { grid-template-columns: 1fr; gap: var(--space-6); }
+      .hero { text-align: center; }
+      .hero__eyebrow { justify-content: center; }
+      .hero__sub { margin-left: auto; margin-right: auto; }
+      .hero__actions { justify-content: center; }
+      .hero__credentials { justify-content: center; }
+      .hero__photo-wrap { max-width: 340px; margin: 0 auto; order: -1; }
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       SOBRE MIM
+    ═════════════════════════════════════════════════════════ */
+    .sobre {
+      padding: var(--space-7) 0;
+      background: var(--color-surface-alt);
+    }
+    .sobre__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .sobre__photo-wrap { position: relative; }
+    .sobre__photo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+    }
+    .sobre__photo-quote {
+      position: absolute;
+      bottom: -var(--space-5);
+      left: var(--space-5);
+      right: var(--space-5);
+    }
+    .sobre__quote-block {
+      background: var(--color-primary);
+      border-radius: var(--radius-sm);
+      padding: var(--space-5);
+      margin-top: var(--space-4);
+    }
+    .sobre__quote-text {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-white);
+      line-height: 1.6;
+    }
+    .sobre__quote-author {
+      margin-top: var(--space-3);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .sobre__content { display: flex; flex-direction: column; gap: var(--space-5); }
+    .sobre__intro { font-size: 1.125rem; font-weight: 300; line-height: 1.8; color: var(--color-text-light); }
+    .sobre__divider { width: 48px; height: 2px; background: var(--color-secondary); border-radius: 2px; }
+    .sobre__formacao-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: var(--space-4);
+    }
+    .formacao-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+    .formacao-list li {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      color: var(--color-text);
+    }
+    .formacao-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px; height: 6px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: var(--color-secondary);
+    }
+    .formacao-list strong { color: var(--color-primary); font-weight: 500; }
+
+    @media (max-width: 900px) {
+      .sobre__grid { grid-template-columns: 1fr; gap: var(--space-6); }
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       ESPECIALIDADES
+    ═════════════════════════════════════════════════════════ */
+    .especialidades {
+      padding: var(--space-7) 0;
+      background: var(--color-surface);
+    }
+    .esp__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    /* Card assimétrico: cada card tem layout próprio */
+    .esp__card {
+      border-radius: var(--radius-lg);
+      padding: var(--space-6) var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .esp__card--primary {
+      background: var(--color-primary);
+      color: var(--color-white);
+      grid-row: span 1;
+    }
+    .esp__card--surface {
+      background: var(--color-surface-alt);
+      border: 1px solid rgba(58, 172, 170, 0.15);
+    }
+    .esp__card--accent {
+      background: var(--color-accent);
+      color: var(--color-white);
+    }
+    .esp__card--light {
+      background: rgba(58, 172, 170, 0.08);
+      border: 1px solid rgba(58, 172, 170, 0.2);
+    }
+
+    .esp__card-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
+    .esp__card--surface .esp__card-label,
+    .esp__card--light .esp__card-label { color: var(--color-secondary); opacity: 1; }
+    .esp__card--primary .esp__card-label,
+    .esp__card--accent .esp__card-label  { color: rgba(255,255,255,0.7); }
+
+    .esp__card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+    .esp__card--primary h3,
+    .esp__card--accent h3  { color: var(--color-white); }
+    .esp__card--surface h3,
+    .esp__card--light h3   { color: var(--color-primary); }
+
+    .esp__card p { font-size: 0.9375rem; line-height: 1.7; }
+    .esp__card--primary p,
+    .esp__card--accent p  { color: rgba(255,255,255,0.80); }
+    .esp__card--surface p,
+    .esp__card--light p   { color: var(--color-text-light); }
+
+    .esp__card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      align-self: flex-start;
+      margin-top: auto;
+    }
+    .esp__card--primary .esp__card-tag { background: rgba(255,255,255,0.12); color: var(--color-white); }
+    .esp__card--accent .esp__card-tag  { background: rgba(255,255,255,0.15); color: var(--color-white); }
+    .esp__card--surface .esp__card-tag { background: rgba(26,74,122,0.08); color: var(--color-primary); }
+    .esp__card--light .esp__card-tag   { background: rgba(58,172,170,0.15); color: var(--color-secondary); }
+
+    @media (max-width: 700px) {
+      .esp__grid { grid-template-columns: 1fr; }
+    }
+
+
+
+
+
+    /* ════════════════════════════════════════════════════════
+       CONTATO
+    ═════════════════════════════════════════════════════════ */
+    .contato {
+      padding: var(--space-7) 0;
+      background: var(--color-surface-alt);
+    }
+    .contato__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .contato__intro { font-size: 1.0625rem; font-weight: 300; line-height: 1.8; color: var(--color-text-light); margin-bottom: var(--space-5); }
+
+    .contato__items { display: flex; flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-6); }
+    .contato__item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+    }
+    .contato__item-icon {
+      width: 44px; height: 44px;
+      border-radius: var(--radius-sm);
+      background: rgba(58, 172, 170, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contato__item-icon svg { color: var(--color-secondary); }
+    .contato__item-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.10em; text-transform: uppercase; color: var(--color-secondary); margin-bottom: 2px; }
+    .contato__item-value { font-size: 0.9375rem; color: var(--color-text); line-height: 1.5; }
+    .contato__item-value a { color: var(--color-primary); font-weight: 500; }
+    .contato__item-value a:hover { text-decoration: underline; }
+
+    .contato__social-title {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.10em;
+      text-transform: uppercase; color: var(--color-text-light);
+      margin-bottom: var(--space-3);
+    }
+    .contato__social-links { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+    .contato__social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      border: 1.5px solid rgba(26,74,122,0.18);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-primary);
+      transition: all 0.2s;
+    }
+    .contato__social-link:hover { background: var(--color-primary); color: var(--color-white); border-color: var(--color-primary); }
+
+    /* CTA Card */
+    .contato__cta-card {
+      background: var(--color-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6) var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      position: sticky;
+      top: calc(var(--nav-height) + var(--space-4));
+    }
+    .contato__cta-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--color-secondary); }
+    .contato__cta-title {
+      font-family: var(--font-heading);
+      font-size: 1.9rem;
+      font-weight: 300;
+      color: var(--color-white);
+      line-height: 1.2;
+    }
+    .contato__cta-title em { font-style: italic; color: var(--color-secondary); }
+    .contato__cta-text { font-size: 0.9375rem; font-weight: 300; color: rgba(255,255,255,0.70); line-height: 1.7; }
+    .contato__cta-phone {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--color-white);
+      letter-spacing: 0.02em;
+    }
+    .contato__cta-phone span { font-family: var(--font-body); font-size: 0.72rem; font-weight: 400; color: rgba(255,255,255,0.5); display: block; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
+    .contato__cta-divider { height: 1px; background: rgba(255,255,255,0.12); }
+    .contato__cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.40); line-height: 1.6; }
+
+    @media (max-width: 900px) {
+      .contato__grid { grid-template-columns: 1fr; gap: var(--space-6); }
+      .contato__cta-card { position: static; }
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       LOCALIZAÇÃO
+    ═════════════════════════════════════════════════════════ */
+    .localizacao {
+      padding: var(--space-7) 0;
+      background: var(--color-surface);
+    }
+    .localizacao__grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .localizacao__info { display: flex; flex-direction: column; gap: var(--space-5); }
+    .localizacao__address-block { display: flex; flex-direction: column; gap: var(--space-3); }
+    .localizacao__clinic-name {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+    .localizacao__address {
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      color: var(--color-text-light);
+    }
+    .localizacao__horarios { display: flex; flex-direction: column; gap: var(--space-3); }
+    .localizacao__horarios-title {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.10em;
+      text-transform: uppercase; color: var(--color-secondary);
+    }
+    .horario-item { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--color-text); padding: 6px 0; border-bottom: 1px solid rgba(58,172,170,0.12); }
+    .horario-item:last-child { border-bottom: none; }
+    .horario-item span:last-child { font-weight: 500; color: var(--color-primary); }
+
+    .localizacao__map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      height: 400px;
+    }
+    .localizacao__map-wrap iframe {
+      width: 100%; height: 100%;
+      border: none;
+      display: block;
+    }
+
+    @media (max-width: 860px) {
+      .localizacao__grid { grid-template-columns: 1fr; gap: var(--space-5); }
+      .localizacao__map-wrap { height: 300px; }
+    }
+
+
+    /* ════════════════════════════════════════════════════════
+       FOOTER
+    ═════════════════════════════════════════════════════════ */
+    .footer {
+      background: var(--color-primary-dark);
+      padding: var(--space-6) 0;
+    }
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .footer__brand { display: flex; flex-direction: column; gap: 4px; }
+    .footer__brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-white);
+    }
+    .footer__brand-cred { font-size: 0.72rem; color: rgba(255,255,255,0.40); letter-spacing: 0.05em; }
+
+    .footer__links { display: flex; gap: var(--space-5); flex-wrap: wrap; }
+    .footer__links a { font-size: 0.8125rem; color: rgba(255,255,255,0.50); transition: color 0.2s; }
+    .footer__links a:hover { color: var(--color-white); }
+
+    .footer__copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+
+    @media (max-width: 640px) {
+      .footer__inner { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#inicio" class="nav__brand">
+        <span class="nav__brand-name">Dra. Denyse Albuquerque</span>
+        <span class="nav__brand-sub">Médica Psiquiatra · CREMEC 13.974</span>
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#sobre">Sobre mim</a></li>
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+      </ul>
+      <a href="https://wa.me/5585981319891" target="_blank" rel="noopener" class="btn btn-primary nav__cta">
+        Agendar consulta
+      </a>
+      <button class="nav__hamburger" aria-label="Abrir menu"
+        onclick="document.getElementById('nav').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__content">
+          <div class="hero__eyebrow">
+            <span class="hero__eyebrow-line"></span>
+            <span class="label">Psiquiatria · Fortaleza — CE</span>
+          </div>
+          <h1 class="hero__heading">
+            Um espaço para<br />
+            <em>reencontrar</em><br />
+            o seu equilíbrio
+          </h1>
+          <p class="hero__sub">
+            Atendimento psiquiátrico especializado para adultos e idosos —
+            com escuta atenta, rigor científico e cuidado genuinamente humano.
+          </p>
+          <div class="hero__actions">
+            <a href="https://wa.me/5585981319891" target="_blank" rel="noopener" class="btn btn-primary">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
+              </svg>
+              Agendar consulta
+            </a>
+            <a href="#sobre" class="btn btn-outline">Conhecer meu trabalho</a>
+          </div>
+          <div class="hero__credentials">
+            <span class="hero__cred-item">CREMEC 13.974</span>
+            <span class="hero__cred-sep"></span>
+            <span class="hero__cred-item">RQE 9.333</span>
+            <span class="hero__cred-sep"></span>
+            <span class="hero__cred-item">+10 anos em saúde mental</span>
+          </div>
+        </div>
+        <div class="hero__photo-wrap">
+          <div class="hero__photo-accent"></div>
+          <div class="hero__ring"></div>
+          <img class="hero__photo" src="foto_profissional_1_4x5.jpg"
+            alt="Dra. Denyse Albuquerque, médica psiquiatra em Fortaleza" loading="eager" />
+          <div class="hero__photo-card">
+            <div>
+              <div class="hero__photo-card-name">Dra. Denyse Albuquerque</div>
+              <div class="hero__photo-card-role">Médica Psiquiatra · Fortaleza — CE</div>
+            </div>
+            <span class="hero__photo-card-badge">CREMEC 13.974</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ SOBRE MIM ═══════════ -->
+  <section class="sobre" id="sobre">
+    <div class="container">
+      <div class="sobre__grid">
+
+        <!-- Foto + citação -->
+        <div class="sobre__photo-wrap">
+          <img class="sobre__photo" src="foto_profissional_3_16x9.jpg"
+            alt="Dra. Denyse Albuquerque em seu consultório" loading="lazy" />
+          <div class="sobre__quote-block">
+            <p class="sobre__quote-text">
+              "Pratico a escuta atenta e o acolhimento aliados à sólida formação
+              e atualização científica constante."
+            </p>
+            <p class="sobre__quote-author">— Dra. Denyse Albuquerque</p>
+          </div>
+        </div>
+
+        <!-- Texto -->
+        <div class="sobre__content">
+          <div class="section-intro">
+            <span class="label">Sobre mim</span>
+            <h2>Cuidado com quem você é, não apenas com o que você sente</h2>
+          </div>
+
+          <p class="sobre__intro">
+            Sou médica psiquiatra com mais de 10 anos dedicados à saúde mental,
+            atuando com adultos e idosos em psiquiatria geral e dependência química.
+            Minha prática une rigor científico e escuta humana — porque acredito que
+            cada pessoa carrega uma história que merece atenção real.
+          </p>
+
+          <p style="font-size: 0.9375rem; color: var(--color-text-light); line-height: 1.8;">
+            Como médica, avalio a presença de transtornos mentais e indico caminhos:
+            mudanças de estilo de vida, tratamentos medicamentosos quando necessário,
+            e integração com outros profissionais. Valorizo a rede de apoio do meu
+            paciente e o cuidado multiprofissional.
+          </p>
+
+          <div class="sobre__divider"></div>
+
+          <div>
+            <p class="sobre__formacao-title">Formação &amp; Títulos</p>
+            <ul class="formacao-list">
+              <li>
+                <div>
+                  <strong>Residência médica em Psiquiatria</strong><br />
+                  Universidade Federal do Ceará (UFC)
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Preceptora da Residência Médica em Psiquiatria</strong><br />
+                  UFC / HUWC
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Especialista em Saúde da Família</strong><br />
+                  Universidade Federal do Ceará (UFC)
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Especialista em Psicoterapia Psicanalítica</strong><br />
+                  FB UNI
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Pós-graduada em Dependências Químicas e Comportamentais</strong><br />
+                  PUC-PR
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/5585981319891" target="_blank" rel="noopener" class="btn btn-primary" style="align-self: flex-start; margin-top: var(--space-2);">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
+            </svg>
+            Agendar minha consulta
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ ESPECIALIDADES ═══════════ -->
+  <section class="especialidades" id="especialidades">
+    <div class="container">
+      <div class="section-intro section-intro--center">
+        <span class="label">Áreas de atuação</span>
+        <h2>O que posso fazer por você</h2>
+        <p style="font-size: 1rem; color: var(--color-text-light); max-width: 520px; line-height: 1.75;">
+          Atendo adultos e idosos com queixa em saúde mental, buscando sempre
+          uma avaliação completa e um plano de cuidado individualizado.
+        </p>
+      </div>
+
+      <div class="esp__grid">
+
+        <!-- Card 1: Psiquiatria Geral (destaque azul) -->
+        <div class="esp__card esp__card--primary">
+          <span class="esp__card-label">Área principal</span>
+          <h3>Psiquiatria Geral para Adultos e Idosos</h3>
+          <p>
+            Avaliação e acompanhamento de transtornos de humor (depressão,
+            bipolaridade), ansiedade, insônia, transtornos psicóticos,
+            e condições relacionadas ao envelhecimento.
+          </p>
+          <span class="esp__card-tag">Consultas presenciais · Fortaleza</span>
+        </div>
+
+        <!-- Card 2: Dependência Química (bege) -->
+        <div class="esp__card esp__card--surface">
+          <span class="esp__card-label">Especialidade</span>
+          <h3>Dependência Química e Comportamental</h3>
+          <p>
+            Tratamento de dependência de álcool, medicamentos e outras substâncias,
+            com abordagem médica integrada, sem julgamentos — com foco na
+            retomada de autonomia e qualidade de vida.
+          </p>
+          <span class="esp__card-tag">Pós-graduada pela PUC-PR</span>
+        </div>
+
+        <!-- Card 3: Psicoterapia Psicanalítica (bege) -->
+        <div class="esp__card esp__card--light">
+          <span class="esp__card-label">Formação complementar</span>
+          <h3>Escuta com Base Psicanalítica</h3>
+          <p>
+            Formação em psicoterapia psicanalítica como suporte para uma
+            prática mais profunda — onde o medicamento e a escuta andam
+            juntos no processo de cuidado.
+          </p>
+          <span class="esp__card-tag">Especialista · FB UNI</span>
+        </div>
+
+        <!-- Card 4: Cuidado Multiprofissional (laranja) -->
+        <div class="esp__card esp__card--accent">
+          <span class="esp__card-label">Minha forma de trabalhar</span>
+          <h3>Cuidado Integrado e em Rede</h3>
+          <p>
+            Valorizo a articulação com psicólogos, terapeutas ocupacionais,
+            nutricionistas e a família do paciente — porque saúde mental
+            se constrói em conjunto.
+          </p>
+          <span class="esp__card-tag">Abordagem multiprofissional</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ CONTATO ═══════════ -->
+  <section class="contato" id="contato">
+    <div class="container">
+      <div class="contato__grid">
+
+        <!-- Esquerda: info -->
+        <div>
+          <div class="section-intro">
+            <span class="label">Contato</span>
+            <h2>Vamos conversar?</h2>
+          </div>
+
+          <p class="contato__intro">
+            O primeiro passo pode ser o mais difícil — mas estou aqui para torná-lo
+            mais simples. Entre em contato pelo WhatsApp ou pelas redes sociais.
+          </p>
+
+          <div class="contato__items">
+
+            <div class="contato__item">
+              <div class="contato__item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.64a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="contato__item-label">WhatsApp</p>
+                <p class="contato__item-value">
+                  <a href="https://wa.me/5585981319891" target="_blank" rel="noopener">(85) 98131-9891</a>
+                  <br /><span style="font-size:0.8rem; color: var(--color-text-light);">Agendamento e informações</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="contato__item">
+              <div class="contato__item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4"/>
+                </svg>
+              </div>
+              <div>
+                <p class="contato__item-label">Local de atendimento</p>
+                <p class="contato__item-value">
+                  Clínica Neyliane Onofre Saúde Integral<br />
+                  Av. Dom Luís, 1233 · 1º Andar · Sala 106<br />
+                  Meireles · Fortaleza — CE
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="contato__social-title">Redes sociais</p>
+          <div class="contato__social-links">
+            <a href="https://instagram.com/denysealbuquerquepsiquiatra" target="_blank" rel="noopener" class="contato__social-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+              @denysealbuquerquepsiquiatra
+            </a>
+            <a href="https://tiktok.com/@denysealbuquerquepsiq" target="_blank" rel="noopener" class="contato__social-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/>
+              </svg>
+              @denysealbuquerquepsiq
+            </a>
+          </div>
+        </div>
+
+        <!-- Direita: CTA card -->
+        <div class="contato__cta-card">
+          <span class="contato__cta-label">Agende sua consulta</span>
+          <h3 class="contato__cta-title">
+            Dê o primeiro<br /><em>passo</em> hoje
+          </h3>
+          <p class="contato__cta-text">
+            Atendimentos presenciais em Fortaleza/CE.
+            Envie uma mensagem pelo WhatsApp e receba
+            orientações sobre disponibilidade e valores.
+          </p>
+          <div>
+            <span class="contato__cta-phone">
+              <span>WhatsApp</span>
+              (85) 98131-9891
+            </span>
+          </div>
+          <div class="contato__cta-divider"></div>
+          <a href="https://wa.me/5585981319891" target="_blank" rel="noopener"
+            class="btn btn-primary" style="width: 100%; justify-content: center;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
+            </svg>
+            Falar pelo WhatsApp
+          </a>
+          </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ LOCALIZAÇÃO ═══════════ -->
+  <section class="localizacao" id="localizacao">
+    <div class="container">
+      <div class="section-intro section-intro--center">
+        <span class="label">Localização</span>
+        <h2>Onde me encontrar</h2>
+      </div>
+
+      <div class="localizacao__grid">
+
+        <!-- Info -->
+        <div class="localizacao__info">
+          <div class="localizacao__address-block">
+            <p class="localizacao__clinic-name">Clínica Neyliane Onofre Saúde Integral</p>
+            <p class="localizacao__address">
+              Av. Dom Luís, 1233<br />
+              1º Andar · Sala 106<br />
+              Meireles · Fortaleza — CE
+            </p>
+            <a href="https://maps.google.com/?q=Av.+Dom+Luís,+1233,+Meireles,+Fortaleza,+CE"
+              target="_blank" rel="noopener" class="btn btn-outline" style="align-self: flex-start; padding: 10px 20px; font-size: 0.875rem;">
+              Ver no Google Maps
+            </a>
+          </div>
+
+          <div class="localizacao__horarios">
+            <p class="localizacao__horarios-title">Agendamentos</p>
+            <div class="horario-item">
+              <span>Consultas presenciais</span>
+              <span>Fortaleza/CE</span>
+            </div>
+            <div class="horario-item">
+              <span>WhatsApp</span>
+              <span>Horário comercial</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mapa -->
+        <div class="localizacao__map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.0905866993895!2d-38.503589!3d-3.732699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c74851df1c1c1b%3A0xd2a0e8e8a8e8e8e8!2sAv.%20Dom%20Lu%C3%ADs%2C%201233%20-%20Meireles%2C%20Fortaleza%20-%20CE!5e0!3m2!1spt-BR!2sbr!4v1693000000000!5m2!1spt-BR!2sbr"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização da Clínica Neyliane Onofre — Av. Dom Luís, 1233, Meireles, Fortaleza/CE">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__brand-name">Dra. Denyse Albuquerque</span>
+        <span class="footer__brand-cred">Médica Psiquiatra · CREMEC 13.974 · RQE 9.333</span>
+      </div>
+      <nav class="footer__links" aria-label="Links do rodapé">
+        <a href="#sobre">Sobre mim</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#contato">Contato</a>
+        <a href="#localizacao">Localização</a>
+        <a href="https://instagram.com/denysealbuquerquepsiquiatra" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+      <p class="footer__copy">&copy; 2025 · Dra. Denyse Albuquerque</p>
+    </div>
+  </footer>
+
+</body>
+</html>
