@@ -158,7 +158,24 @@
       justify-content: space-between;
       height: 100%;
     }
-    .nav__brand { display: flex; flex-direction: column; gap: 1px; }
+    .nav__brand {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .nav__logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .nav__brand > div {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
     .nav__brand-name {
       font-family: var(--font-heading);
       font-size: 1.1rem;
@@ -720,8 +737,11 @@
   <nav class="nav" id="nav">
     <div class="container nav__inner">
       <a href="#inicio" class="nav__brand">
-        <span class="nav__brand-name">Dra. Denyse Albuquerque</span>
-        <span class="nav__brand-sub">Médica Psiquiatra · CREMEC 13.974 · RQE 9.333</span>
+        <img src="logo.png" alt="Logo Dra. Denyse Albuquerque" class="nav__logo" />
+        <div>
+          <span class="nav__brand-name">Dra. Denyse Albuquerque</span>
+          <span class="nav__brand-sub">Médica Psiquiatra · CREMEC 13.974 · RQE 9.333</span>
+        </div>
       </a>
       <ul class="nav__links" id="navLinks">
         <li><a href="#sobre">Sobre mim</a></li>
