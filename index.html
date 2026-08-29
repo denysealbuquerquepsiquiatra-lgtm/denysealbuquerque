@@ -320,9 +320,14 @@
       font-size: 0.65rem;
       font-weight: 500;
       letter-spacing: 0.05em;
-      padding: 5px 11px;
+      padding: 7px 13px;
       border-radius: var(--radius-full);
       white-space: nowrap;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      text-align: center;
     }
     .hero__ring {
       position: absolute;
@@ -780,7 +785,10 @@
               <div class="hero__photo-card-name">Dra. Denyse Albuquerque</div>
               <div class="hero__photo-card-role">Médica Psiquiatra · Fortaleza — CE</div>
             </div>
-            <span class="hero__photo-card-badge">CREMEC 13.974 · RQE 9.333</span>
+            <span class="hero__photo-card-badge">
+                <span>CREMEC 13.974</span>
+                <span>RQE 9.333</span>
+              </span>
           </div>
         </div>
       </div>
