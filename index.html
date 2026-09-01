@@ -56,6 +56,64 @@
   }
   </script>
 
+  <!-- Schema.org FAQPage — para resultados enriquecidos no Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quais condições a Dra. Denyse Albuquerque trata?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Dra. Denyse oferece tratamento psiquiátrico para: depressão, depressão pós-parto, ansiedade, transtorno do pânico, transtorno bipolar, TOC (Transtorno Obsessivo-Compulsivo), TEPT (Transtorno de Estresse Pós-Traumático), insônia, alcoolismo, dependência química, vícios comportamentais, dependência de apostas, esquizofrenia, transtorno esquizoafetivo, autismo (TEA) em adultos e TDAH."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O atendimento é por convênio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não. O atendimento é exclusivamente particular, não sendo aceito nenhum plano de saúde ou convênio. Para informações sobre valores, entre em contato pelo WhatsApp (85) 98131-9891."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como funciona a primeira consulta com a psiquiatra?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Na primeira consulta, a Dra. Denyse realiza uma avaliação psiquiátrica completa — ouvindo sua história, sintomas e contexto de vida. São discutidos possíveis diagnósticos e as melhores opções de tratamento, que podem incluir acompanhamento medicamentoso, indicação de psicoterapia ou encaminhamento para outros profissionais."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Onde fica o consultório da Dra. Denyse em Fortaleza?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O atendimento acontece na Clínica Neyliane Onofre Saúde Integral, na Av. Dom Luís, 1233, 1º Andar, Sala 106, Meireles, Fortaleza-CE. Agendamento pelo WhatsApp (85) 98131-9891."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qual a diferença entre psiquiatra e psicólogo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O psiquiatra é médico especializado em saúde mental — pode solicitar exames, fazer diagnósticos e prescrever medicamentos. O psicólogo atua com psicoterapia, mas não prescreve medicamentos. Muitas vezes, o tratamento ideal envolve os dois profissionais."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como agendar uma consulta com a Dra. Denyse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O agendamento é feito pelo WhatsApp (85) 98131-9891. As mensagens são respondidas em horário comercial."
+        }
+      }
+    ]
+  }
+  </script>
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -749,6 +807,92 @@
 
 
     /* ════════════════════════════════════════════════════════
+       FAQ
+    ═════════════════════════════════════════════════════════ */
+    .faq {
+      padding: var(--space-7) 0;
+      background: var(--color-surface-alt);
+    }
+    .faq__grid {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .faq__item {
+      border-radius: var(--radius-sm);
+      background: var(--color-surface);
+      border: 1px solid rgba(58, 172, 170, 0.15);
+      overflow: hidden;
+    }
+    .faq__question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      padding: var(--space-4) var(--space-5);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-primary);
+      text-align: left;
+      transition: background 0.2s;
+    }
+    .faq__question:hover { background: rgba(58, 172, 170, 0.06); }
+    .faq__question[aria-expanded="true"] { background: rgba(58, 172, 170, 0.06); }
+    .faq__icon {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid var(--color-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: transform 0.25s;
+    }
+    .faq__icon::before,
+    .faq__icon::after {
+      content: '';
+      position: absolute;
+      background: var(--color-secondary);
+      border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .faq__icon::before { width: 10px; height: 1.5px; }
+    .faq__icon::after  { width: 1.5px; height: 10px; }
+    .faq__question[aria-expanded="true"] .faq__icon::after { transform: rotate(90deg); opacity: 0; }
+    .faq__question[aria-expanded="true"] .faq__icon { transform: rotate(45deg); border-color: var(--color-accent); }
+    .faq__question[aria-expanded="true"] .faq__icon::before,
+    .faq__question[aria-expanded="true"] .faq__icon::after { background: var(--color-accent); }
+
+    .faq__answer {
+      display: none;
+      padding: 0 var(--space-5) var(--space-5);
+      font-size: 0.9375rem;
+      color: var(--color-text-light);
+      line-height: 1.75;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .faq__answer.open { display: flex; }
+    .faq__answer ul {
+      padding-left: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: var(--space-2);
+    }
+    .faq__answer ul li { color: var(--color-text); }
+    .faq__answer strong { color: var(--color-primary); }
+
+
+    /* ════════════════════════════════════════════════════════
        FOOTER
     ═════════════════════════════════════════════════════════ */
     .footer {
@@ -798,6 +942,7 @@
       <ul class="nav__links" id="navLinks">
         <li><a href="#sobre">Sobre mim</a></li>
         <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contato">Contato</a></li>
         <li><a href="#localizacao">Localização</a></li>
       </ul>
@@ -1176,7 +1321,104 @@
   </section>
 
 
+
+  <!-- ═══════════ FAQ ═══════════ -->
+  <section class="faq" id="faq">
+    <div class="container">
+
+      <div class="section-intro section-intro--center">
+        <span class="label">Perguntas frequentes</span>
+        <h2>Tire suas dúvidas</h2>
+        <p style="font-size:1rem; color:var(--color-text-light); max-width:520px; line-height:1.75;">
+          Respostas para as dúvidas mais comuns sobre atendimento psiquiátrico, condições tratadas e como funciona a consulta.
+        </p>
+      </div>
+
+      <div class="faq__grid">
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Quais condições a Dra. Denyse trata?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer">
+            <p>A Dra. Denyse Albuquerque oferece tratamento psiquiátrico para adultos e idosos com diversas condições de saúde mental, incluindo:</p>
+            <ul>
+              <li><strong>Depressão</strong> e depressão pós-parto</li>
+              <li><strong>Ansiedade</strong> e transtorno do pânico</li>
+              <li><strong>Transtorno Bipolar</strong></li>
+              <li><strong>TOC</strong> — Transtorno Obsessivo-Compulsivo</li>
+              <li><strong>TEPT</strong> — Transtorno de Estresse Pós-Traumático</li>
+              <li><strong>Insônia</strong> e outros transtornos do sono</li>
+              <li><strong>Alcoolismo</strong> e dependência química em geral</li>
+              <li><strong>Vícios comportamentais</strong>, incluindo dependência de apostas (jogo patológico)</li>
+              <li><strong>Esquizofrenia</strong> e Transtorno Esquizoafetivo</li>
+              <li><strong>Autismo</strong> (TEA) em adultos</li>
+              <li><strong>TDAH</strong> — Transtorno de Déficit de Atenção com Hiperatividade</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            O atendimento é por convênio?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer">
+            <p>Não. O atendimento da Dra. Denyse Albuquerque é <strong>exclusivamente particular</strong>, não sendo aceito nenhum plano de saúde ou convênio. Para informações sobre valores e disponibilidade de horários, entre em contato pelo WhatsApp <strong>(85) 98131-9891</strong>.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Como funciona a primeira consulta?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer">
+            <p>Na primeira consulta, a Dra. Denyse realiza uma avaliação psiquiátrica completa — ouvindo sua história, sintomas e contexto de vida. A partir daí, são discutidos juntos os possíveis diagnósticos e as melhores opções de tratamento, que podem incluir acompanhamento medicamentoso, indicação de psicoterapia ou encaminhamento para outros profissionais quando necessário.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Onde fica o consultório em Fortaleza?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer">
+            <p>O atendimento acontece na <strong>Clínica Neyliane Onofre Saúde Integral</strong>, localizada na <strong>Av. Dom Luís, 1233, 1º Andar, Sala 106, Meireles — Fortaleza/CE</strong>. O agendamento é feito pelo WhatsApp <strong>(85) 98131-9891</strong>.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Qual a diferença entre psiquiatra e psicólogo?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer">
+            <p>O <strong>psiquiatra</strong> é médico especializado em saúde mental — pode solicitar exames, fazer diagnósticos e prescrever medicamentos quando indicado. O <strong>psicólogo</strong> atua com psicoterapia, mas não prescreve medicamentos. Muitas vezes, o tratamento ideal envolve os dois profissionais trabalhando em conjunto.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Como agendar uma consulta?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer">
+            <p>O agendamento é feito diretamente pelo WhatsApp. Clique no botão abaixo ou envie uma mensagem para <strong>(85) 98131-9891</strong>. As mensagens são respondidas em horário comercial.</p>
+            <a href="https://wa.me/5585981319891" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:var(--space-3); align-self:flex-start;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg>
+              Agendar pelo WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════ FOOTER ═══════════ -->
+
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
@@ -1193,6 +1435,26 @@
       <p class="footer__copy">&copy; 2025 · Dra. Denyse Albuquerque</p>
     </div>
   </footer>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq__question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        // fecha todos
+        document.querySelectorAll('.faq__question').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.classList.remove('open');
+        });
+        // abre o clicado (se estava fechado)
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          answer.classList.add('open');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
